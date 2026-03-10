@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import '@/fui/hud/fui-theme.css'
-import '@/neumorphism/neumorphic-theme.css'
 import '@/glassmorphism/glass-theme.css'
 import {
   FuiInput,
@@ -31,15 +30,6 @@ import {
   FuiTypewriter,
   FuiParticles,
 } from '@/fui/hud'
-import {
-  NeumorphicButton,
-  NeumorphicCard,
-  NeumorphicInput,
-  NeumorphicCheckbox,
-  NeumorphicRadio,
-  NeumorphicSelect,
-  NeumorphicTable,
-} from '@/neumorphism'
 import {
   GlassButton,
   GlassInput,
@@ -129,7 +119,7 @@ const loginOptions = [
   { id: 'pin', label: 'Pin log in', icon: '🔢', variant: 'blue' as const },
 ]
 
-type StyleTab = 'fui' | 'neumorphism' | 'glassmorphism'
+type StyleTab = 'fui' | 'glassmorphism'
 
 export const ComponentsPage: React.FC = () => {
   const [activeStyle, setActiveStyle] = useState<StyleTab>('fui')
@@ -137,12 +127,6 @@ export const ComponentsPage: React.FC = () => {
   const [sliderValue, setSliderValue] = useState(75)
   const [checkboxState, setCheckboxState] = useState({ a: true, b: false })
   const [radioState, setRadioState] = useState('1')
-  
-  // Neumorphic states
-  const [neuCheckbox1, setNeuCheckbox1] = useState(true)
-  const [neuCheckbox2, setNeuCheckbox2] = useState(false)
-  const [neuRadio, setNeuRadio] = useState('option1')
-  const [neuSelect, setNeuSelect] = useState('')
 
   // Glass states
   const [glassCheckbox1, setGlassCheckbox1] = useState(true)
@@ -154,7 +138,7 @@ export const ComponentsPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className={activeStyle === 'neumorphism' ? 'neumorphic' : activeStyle === 'glassmorphism' ? 'glassmorphism' : 'fui-hud'}>
+    <div className={activeStyle === 'glassmorphism' ? 'glassmorphism' : 'fui-hud'}>
       <div className="gridBg" />
       <div className="scanlines" />
       <div className={styles.catalog}>
@@ -164,12 +148,6 @@ export const ComponentsPage: React.FC = () => {
             onClick={() => setActiveStyle('fui')}
           >
             FUI HUD
-          </button>
-          <button
-            className={`${styles.styleTab} ${activeStyle === 'neumorphism' ? styles.active : ''}`}
-            onClick={() => setActiveStyle('neumorphism')}
-          >
-            NEUMORPHISM
           </button>
           <button
             className={`${styles.styleTab} ${activeStyle === 'glassmorphism' ? styles.active : ''}`}
@@ -191,6 +169,30 @@ export const ComponentsPage: React.FC = () => {
                   <div className={styles.componentDemo}>
                     <FuiInput label="Username" placeholder="Enter username..." />
                     <FuiInput label="Email" type="email" placeholder="user@domain.com" />
+                    <FuiInput label="Password" type="password" placeholder="••••••" />
+                    <FuiInput label="Disabled" disabled value="System disabled" />
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiSelect</div>
+                  <div className={styles.componentDemo}>
+                    <FuiSelect
+                      label="Select Option"
+                      options={[
+                        { value: '', label: 'Select...' },
+                        { value: '1', label: 'Option Alpha' },
+                        { value: '2', label: 'Option Beta' },
+                        { value: '3', label: 'Option Gamma' },
+                      ]}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiFileUpload</div>
+                  <div className={styles.fileSection}>
+                    <FuiFileUpload label="Upload File" />
                   </div>
                 </div>
               </div>
@@ -200,39 +202,271 @@ export const ComponentsPage: React.FC = () => {
               <h2 className={styles.sectionTitle}>{'::'} BUTTONS</h2>
               <div className={styles.componentsGrid}>
                 <div className={styles.componentItem}>
-                  <div className={styles.componentName}>FuiButton</div>
+                  <div className={styles.componentName}>FuiButton Variants</div>
                   <div className={styles.componentDemo}>
                     <FuiButton>Primary</FuiButton>
                     <FuiButton variant="secondary">Secondary</FuiButton>
                     <FuiButton variant="success">Success</FuiButton>
+                    <FuiButton variant="danger">Danger</FuiButton>
+                    <FuiButton disabled>Disabled</FuiButton>
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiInitiateButton</div>
+                  <div className={styles.componentDemo}>
+                    <FuiInitiateButton direction="right" label="INITIATE" />
+                    <FuiInitiateButton direction="left" label="INITIATE" />
                   </div>
                 </div>
               </div>
             </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} FORMS</h2>
+              <div className={styles.componentsGrid}>
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiCheckbox</div>
+                  <div className={styles.checkboxGroup}>
+                    <FuiCheckbox
+                      label="Option A"
+                      checked={checkboxState.a}
+                      onChange={(c) => setCheckboxState({ ...checkboxState, a: c })}
+                    />
+                    <FuiCheckbox
+                      label="Option B"
+                      checked={checkboxState.b}
+                      onChange={(c) => setCheckboxState({ ...checkboxState, b: c })}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiRadioGroup</div>
+                  <div className={styles.radioGroup}>
+                    <FuiRadioGroup
+                      name="demo"
+                      options={[
+                        { value: '1', label: 'Choice 1' },
+                        { value: '2', label: 'Choice 2' },
+                        { value: '3', label: 'Choice 3' },
+                      ]}
+                      selected={radioState}
+                      onChange={(v) => setRadioState(v)}
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} CONTROLS</h2>
+              <div className={styles.componentsGrid}>
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiToggle</div>
+                  <div className={styles.toggleGroup}>
+                    <FuiToggle
+                      label="Enable Feature"
+                      defaultActive={toggleState}
+                      onChange={(active) => setToggleState(active)}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiSlider</div>
+                  <div className={styles.sliderSection}>
+                    <FuiSlider
+                      label="Volume"
+                      value={sliderValue}
+                      onChange={(v) => setSliderValue(v)}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiProgressBar</div>
+                  <div>
+                    <div className={styles.progressSection}>
+                      <FuiProgressBar value={45} label="System Load" />
+                    </div>
+                    <div className={styles.progressSection}>
+                      <FuiProgressBar value={78} variant="warning" label="Memory" />
+                    </div>
+                    <div className={styles.progressSection}>
+                      <FuiProgressBar value={92} variant="danger" label="Critical" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} BADGES & INDICATORS</h2>
+              <div className={styles.componentsGrid}>
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiBadge</div>
+                  <div className={styles.badgesGroup}>
+                    <FuiBadge variant="info">INFO</FuiBadge>
+                    <FuiBadge variant="success">SUCCESS</FuiBadge>
+                    <FuiBadge variant="warning">WARNING</FuiBadge>
+                    <FuiBadge variant="danger">DANGER</FuiBadge>
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiStatusIndicator</div>
+                  <div className={styles.statusGroup}>
+                    <FuiStatusIndicator status="online">ONLINE</FuiStatusIndicator>
+                    <FuiStatusIndicator status="warning">WARNING</FuiStatusIndicator>
+                    <FuiStatusIndicator status="offline">OFFLINE</FuiStatusIndicator>
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiChip</div>
+                  <div className={styles.chipsGroup}>
+                    <FuiChip icon="*">ALPHA</FuiChip>
+                    <FuiChip icon="o">BETA</FuiChip>
+                    <FuiChip icon="-">GAMMA</FuiChip>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} CARDS</h2>
+              <div className={styles.componentsGrid}>
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiCard</div>
+                  <div className={styles.componentDemo}>
+                    <FuiCard title="CPU" value="23%" sub="IDLE" />
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiCard Decorated</div>
+                  <div className={styles.componentDemo}>
+                    <FuiCard decorated title="UNIT STATUS">
+                      <p style={{ fontSize: 12, color: '#00ffff80' }}>
+                        System operational. All sensors active.
+                      </p>
+                    </FuiCard>
+                  </div>
+                </div>
+
+                <div className={styles.componentItem}>
+                  <div className={styles.componentName}>FuiHeaderBar</div>
+                  <div className={styles.componentDemo}>
+                    <FuiHeaderBar title="SYSTEM MONITOR" dots={['active', 'warning', 'inactive']} />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} TABLE</h2>
+              <div className={styles.tableSection}>
+                <FuiTable columns={tableColumns} data={tableData} />
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} INFO ROWS</h2>
+              <div className={styles.infoRows}>
+                <FuiInfoRow label="PROCESSOR" value="INTEL i7-12700K" />
+                <FuiInfoRow label="MEMORY" value="32GB DDR5" />
+                <FuiInfoRow label="STORAGE" value="2TB NVMe" />
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} ANIMATIONS</h2>
+              <div className={styles.componentItem}>
+                <div className={styles.componentName}>FuiGlitch</div>
+                <div style={{ padding: '20px', background: 'rgba(0,0,0,0.5)', textAlign: 'center' }}>
+                  <FuiGlitch text="SYSTEM FAILURE" tag="h2" />
+                </div>
+              </div>
+
+              <div className={styles.componentItem}>
+                <div className={styles.componentName}>FuiTypewriter</div>
+                <div style={{ padding: '20px', background: 'rgba(0,0,0,0.5)', textAlign: 'center' }}>
+                  <FuiTypewriter
+                    phrases={['INITIALIZING NEURAL NET', 'CALIBRATING SENSORS', 'SYSTEM READY']}
+                    typingSpeed={50}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.componentItem}>
+                <div className={styles.componentName}>FuiPulsingDots</div>
+                <FuiPulsingDots />
+              </div>
+
+              <div className={styles.componentItem}>
+                <div className={styles.componentName}>FuiParticles</div>
+                <div style={{ position: 'relative', height: '200px', border: '1px solid #00ffff40', overflow: 'hidden' }}>
+                  <FuiParticles />
+                </div>
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} TOOLTIP</h2>
+              <div className={styles.componentItem}>
+                <div className={styles.componentName}>FuiTooltip</div>
+                <div className={styles.tooltipDemo}>
+                  <FuiTooltip content="System Information">[<span style={{ color: '#00ffff' }}>?</span>]</FuiTooltip>
+                  <FuiTooltip content="Help Documentation">[<span style={{ color: '#00ffff' }}>?</span>]</FuiTooltip>
+                  <FuiTooltip content="Contact Support">[<span style={{ color: '#00ffff' }}>?</span>]</FuiTooltip>
+                </div>
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} DECORATIVE</h2>
+              <div className={styles.componentItem} style={{ marginBottom: 20 }}>
+                <div className={styles.componentName}>FuiCornerBrackets</div>
+                <FuiCornerBrackets />
+              </div>
+              <div className={styles.componentItem} style={{ marginBottom: 20 }}>
+                <div className={styles.componentName}>FuiDecoratedCard</div>
+                <FuiDecoratedCard title="// UNIT STATUS">
+                  System operational. All sensors active.<br />
+                  Neural link: <span style={{ color: '#00ffff' }}>STABLE</span>
+                </FuiDecoratedCard>
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} TEXTURES</h2>
+              <div className={styles.componentItem} style={{ marginBottom: 20 }}>
+                <div className={styles.componentName}>FuiBackgrounds</div>
+                <FuiBackgrounds />
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} NETWORK</h2>
+              <div className={styles.componentItem}>
+                <div className={styles.componentName}>FuiNetworkTraffic</div>
+                <FuiNetworkTraffic />
+              </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>{'::'} TICKERS</h2>
+              <div className={styles.componentItem} style={{ marginBottom: 20 }}>
+                <div className={styles.componentName}>FuiCryptoTicker</div>
+                <FuiCryptoTicker type="crypto" />
+              </div>
+              <div className={styles.componentItem}>
+                <div className={styles.componentName}>FuiCryptoTicker (Stock)</div>
+                <FuiCryptoTicker type="stock" />
+              </div>
+            </section>
           </>
-        ) : activeStyle === 'neumorphism' ? (
-          <div className={styles.neuCatalog}>
-            <h1 className={styles.neuTitle}>Neumorphic Components</h1>
-            <p className={styles.neuSubtitle}>Soft, elegant design with depth and dimension</p>
-
-            <section className={styles.neuSection}>
-              <h2 className={styles.neuSectionTitle}>Buttons</h2>
-              <div className={styles.neuGrid}>
-                <NeumorphicButton variant="primary">Primary</NeumorphicButton>
-                <NeumorphicButton variant="secondary">Secondary</NeumorphicButton>
-                <NeumorphicButton variant="success">Success</NeumorphicButton>
-              </div>
-            </section>
-
-            <section className={styles.neuSection}>
-              <h2 className={styles.neuSectionTitle}>Cards</h2>
-              <div className={styles.neuGrid}>
-                <NeumorphicCard title="Default Card">
-                  <p>This is a default neumorphic card with soft shadows.</p>
-                </NeumorphicCard>
-              </div>
-            </section>
-          </div>
         ) : (
           <div className={styles.glassCatalog}>
             <h1 className={styles.glassTitle}>Glassmorphism Components</h1>
