@@ -1,0 +1,39 @@
+.fuiGlassSpinner {
+  border: 2px solid rgba(0, 255, 255, 0.15);
+  border-top-color: #00ffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+.fuiGlassSpinner.small {
+  width: 16px;
+  height: 16px;
+  border-width: 1px;
+}
+
+.fuiGlassSpinner.medium {
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+}
+
+.fuiGlassSpinner.large {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+}
+
+.fuiGlassSpinner.secondary {
+  border-color: rgba(123, 47, 255, 0.15);
+  border-top-color: #7b2fff;
+}
+
+.fuiGlassSpinner.success {
+  border-color: rgba(0, 255, 136, 0.15);
+  border-top-color: #00ff88;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

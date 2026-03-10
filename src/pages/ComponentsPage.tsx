@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '@/fui/hud/fui-theme.css'
+import '@/fui/glass/fui-glass-theme.css'
 import '@/glassmorphism/glass-theme.css'
 import {
   FuiInput,
@@ -51,6 +52,23 @@ import {
   GlassMediaPlayer,
   GlassLoginCard,
 } from '@/glassmorphism'
+import {
+  FuiGlassButton,
+  FuiGlassInput,
+  FuiGlassCard,
+  FuiGlassTable,
+  FuiGlassSelect,
+  FuiGlassCheckbox,
+  FuiGlassRadio,
+  FuiGlassProgress,
+  FuiGlassBadge,
+  FuiGlassTooltip,
+  FuiGlassToggle,
+  FuiGlassSlider,
+  FuiGlassAccordion,
+  FuiGlassToast,
+  FuiGlassSpinner,
+} from '@/fui/glass'
 import styles from './ComponentsPage.module.css'
 
 const tableData = [
@@ -119,7 +137,7 @@ const loginOptions = [
   { id: 'pin', label: 'Pin log in', icon: '🔢', variant: 'blue' as const },
 ]
 
-type StyleTab = 'fui' | 'glassmorphism'
+type StyleTab = 'fui' | 'fui-glass' | 'glassmorphism'
 
 export const ComponentsPage: React.FC = () => {
   const [activeStyle, setActiveStyle] = useState<StyleTab>('fui')
@@ -137,8 +155,15 @@ export const ComponentsPage: React.FC = () => {
   const [glassSlider, setGlassSlider] = useState(75)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
+  // FUI Glass states
+  const [fuiGlassCheckbox1, setFuiGlassCheckbox1] = useState(true)
+  const [fuiGlassCheckbox2, setFuiGlassCheckbox2] = useState(false)
+  const [fuiGlassRadio, setFuiGlassRadio] = useState('fui1')
+  const [fuiGlassToggle, setFuiGlassToggle] = useState(true)
+  const [fuiGlassSlider, setFuiGlassSlider] = useState(65)
+
   return (
-    <div className={activeStyle === 'glassmorphism' ? 'glassmorphism' : 'fui-hud'}>
+    <div className={activeStyle === 'glassmorphism' ? 'glassmorphism' : activeStyle === 'fui-glass' ? 'fui-glass-container' : 'fui-hud'}>
       <div className="gridBg" />
       <div className="scanlines" />
       <div className={styles.catalog}>
@@ -148,6 +173,12 @@ export const ComponentsPage: React.FC = () => {
             onClick={() => setActiveStyle('fui')}
           >
             FUI HUD
+          </button>
+          <button
+            className={`${styles.styleTab} ${activeStyle === 'fui-glass' ? styles.active : ''}`}
+            onClick={() => setActiveStyle('fui-glass')}
+          >
+            FUI GLASS
           </button>
           <button
             className={`${styles.styleTab} ${activeStyle === 'glassmorphism' ? styles.active : ''}`}
@@ -467,6 +498,200 @@ export const ComponentsPage: React.FC = () => {
               </div>
             </section>
           </>
+        ) : activeStyle === 'fui-glass' ? (
+          <div className={styles.fuiGlassCatalog}>
+            <h1 className={styles.fuiGlassTitle}>FUI GLASS COMPONENTS</h1>
+            <p className={styles.fuiGlassSubtitle}>{'::'} FUTURISTIC UI WITH GLASS EFFECTS {'::'}</p>
+
+            <section className={styles.fuiGlassSection}>
+              <h2 className={styles.fuiGlassSectionTitle}>{'::'} INPUTS & FORMS</h2>
+              <div className={styles.fuiGlassGrid}>
+                <FuiGlassCard title="Text Inputs" badge="GLASS">
+                  <FuiGlassInput label="Username" placeholder="Enter username..." />
+                  <FuiGlassInput label="Email" type="email" placeholder="user@domain.com" />
+                  <FuiGlassInput label="Password" type="password" placeholder="••••••••••" />
+                  <FuiGlassInput label="Disabled" disabled value="System Disabled" />
+                </FuiGlassCard>
+
+                <FuiGlassCard title="Select & Controls" badge="DROPDOWN">
+                  <FuiGlassSelect
+                    label="Select Option"
+                    options={[
+                      { value: '', label: 'Select an option...' },
+                      { value: 'alpha', label: 'Option Alpha' },
+                      { value: 'beta', label: 'Option Beta' },
+                      { value: 'gamma', label: 'Option Gamma' },
+                    ]}
+                  />
+                  <div style={{ marginTop: '16px' }}>
+                    <FuiGlassCheckbox 
+                      label="Option A" 
+                      checked={fuiGlassCheckbox1}
+                      onChange={setFuiGlassCheckbox1}
+                    />
+                    <FuiGlassCheckbox 
+                      label="Option B" 
+                      checked={fuiGlassCheckbox2}
+                      onChange={setFuiGlassCheckbox2}
+                    />
+                  </div>
+                </FuiGlassCard>
+
+                <FuiGlassCard title="Radio & Toggle" badge="SELECTION">
+                  <div style={{ marginBottom: '16px' }}>
+                    <FuiGlassRadio 
+                      label="Choice 1" 
+                      name="fui-demo" 
+                      value="fui1"
+                      checked={fuiGlassRadio === 'fui1'}
+                      onChange={setFuiGlassRadio}
+                    />
+                    <FuiGlassRadio 
+                      label="Choice 2" 
+                      name="fui-demo" 
+                      value="fui2"
+                      checked={fuiGlassRadio === 'fui2'}
+                      onChange={setFuiGlassRadio}
+                    />
+                  </div>
+                  <FuiGlassToggle 
+                    label="Enable Feature"
+                    checked={fuiGlassToggle}
+                    onChange={setFuiGlassToggle}
+                  />
+                </FuiGlassCard>
+              </div>
+            </section>
+
+            <section className={styles.fuiGlassSection}>
+              <h2 className={styles.fuiGlassSectionTitle}>{'::'} BUTTONS & ACTIONS</h2>
+              <div className={styles.fuiGlassGrid}>
+                <FuiGlassCard title="Button Variants" badge="INTERACTIVE">
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    <FuiGlassButton variant="primary">Primary</FuiGlassButton>
+                    <FuiGlassButton variant="secondary">Secondary</FuiGlassButton>
+                    <FuiGlassButton variant="success">Success</FuiGlassButton>
+                    <FuiGlassButton variant="danger">Danger</FuiGlassButton>
+                  </div>
+                  <div style={{ marginTop: '12px' }}>
+                    <FuiGlassButton disabled>Disabled</FuiGlassButton>
+                  </div>
+                </FuiGlassCard>
+
+                <FuiGlassCard title="Badges & Status" badge="TAGS">
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
+                    <FuiGlassBadge>DEFAULT</FuiGlassBadge>
+                    <FuiGlassBadge variant="success">SUCCESS</FuiGlassBadge>
+                    <FuiGlassBadge variant="warning">WARNING</FuiGlassBadge>
+                    <FuiGlassBadge variant="danger">DANGER</FuiGlassBadge>
+                  </div>
+                  <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    <FuiGlassSpinner size="small" />
+                    <FuiGlassSpinner size="medium" variant="secondary" />
+                    <FuiGlassSpinner size="large" variant="success" />
+                  </div>
+                </FuiGlassCard>
+
+                <FuiGlassCard title="Tooltips" badge="HOVER">
+                  <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+                    <FuiGlassTooltip tip="System Information">[?] Info</FuiGlassTooltip>
+                    <FuiGlassTooltip tip="Help Documentation">[?] Help</FuiGlassTooltip>
+                    <FuiGlassTooltip tip="Contact Support">[?] Support</FuiGlassTooltip>
+                  </div>
+                </FuiGlassCard>
+              </div>
+            </section>
+
+            <section className={styles.fuiGlassSection}>
+              <h2 className={styles.fuiGlassSectionTitle}>{'::'} PROGRESS & CONTROLS</h2>
+              <div className={styles.fuiGlassGrid}>
+                <FuiGlassCard title="Progress Bars" badge="LOADING">
+                  <FuiGlassProgress label="System Load" value={45} />
+                  <FuiGlassProgress label="Memory Usage" value={78} variant="warning" />
+                  <FuiGlassProgress label="Critical Level" value={92} variant="danger" />
+                </FuiGlassCard>
+
+                <FuiGlassCard title="Slider Control" badge="RANGE">
+                  <FuiGlassSlider 
+                    label="Volume"
+                    min={0}
+                    max={100}
+                    value={fuiGlassSlider}
+                    onChange={setFuiGlassSlider}
+                  />
+                  <div style={{ marginTop: '16px', textAlign: 'center', color: '#00ffff', fontSize: '14px' }}>
+                    Current Value: {fuiGlassSlider}%
+                  </div>
+                </FuiGlassCard>
+
+                <FuiGlassCard title="Data Table" badge="RECORDS">
+                  <FuiGlassTable
+                    columns={[
+                      { key: 'id', header: '#' },
+                      { key: 'name', header: 'Name' },
+                      { key: 'status', header: 'Status' },
+                      { key: 'value', header: 'Value' },
+                    ]}
+                    data={[
+                      { id: '001', name: 'Alpha Unit', status: 'ACTIVE', value: '12,450' },
+                      { id: '002', name: 'Beta Unit', status: 'ONLINE', value: '8,320' },
+                      { id: '003', name: 'Gamma Unit', status: 'PENDING', value: '3,100' },
+                    ]}
+                  />
+                </FuiGlassCard>
+              </div>
+            </section>
+
+            <section className={styles.fuiGlassSection}>
+              <h2 className={styles.fuiGlassSectionTitle}>{'::'} EXPANDABLE & NOTIFICATIONS</h2>
+              <div className={styles.fuiGlassGrid}>
+                <FuiGlassCard title="Accordion Panels" badge="EXPANDABLE">
+                  <FuiGlassAccordion title="// SYSTEM CONFIG" defaultOpen>
+                    Configuration panel for system parameters. Adjust settings according to operational requirements.
+                  </FuiGlassAccordion>
+                  <FuiGlassAccordion title="// NETWORK STATUS">
+                    Connection: ACTIVE<br />
+                    Latency: 12ms<br />
+                    Packet Loss: 0%
+                  </FuiGlassAccordion>
+                  <FuiGlassAccordion title="// SECURITY LOG">
+                    Last access: 00:42:17<br />
+                    Failed attempts: 0<br />
+                    IP Address: 192.168.1.xxx
+                  </FuiGlassAccordion>
+                </FuiGlassCard>
+
+                <FuiGlassCard title="Toast Notifications" badge="ALERTS">
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <FuiGlassToast 
+                      title="SYSTEM UPDATE" 
+                      message="Core firmware v4.2 deployed successfully"
+                      variant="info"
+                      time="2m ago"
+                    />
+                    <FuiGlassToast 
+                      title="SYNC COMPLETE" 
+                      message="All 12 nodes synchronized"
+                      variant="success"
+                      time="5m ago"
+                    />
+                    <FuiGlassToast 
+                      title="HIGH LOAD" 
+                      message="Sector 7 at 87% capacity"
+                      variant="warning"
+                      time="12m ago"
+                    />
+                    <FuiGlassToast 
+                      title="BREACH DETECTED" 
+                      message="Unauthorized access attempt blocked"
+                      variant="error"
+                      time="18m ago"
+                    />
+                  </div>
+                </FuiGlassCard>
+              </div>
+            </section>
+          </div>
         ) : (
           <div className={styles.glassCatalog}>
             <h1 className={styles.glassTitle}>Glassmorphism Components</h1>

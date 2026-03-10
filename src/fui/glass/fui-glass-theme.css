@@ -1,0 +1,611 @@
+/* FUI Glass Theme - Futuristic UI with Glass Effects */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+.fui-glass-container {
+  background: linear-gradient(135deg, 
+    rgba(0, 10, 20, 0.95) 0%,
+    rgba(0, 30, 60, 0.9) 25%,
+    rgba(10, 20, 40, 0.95) 50%,
+    rgba(0, 40, 80, 0.9) 75%,
+    rgba(5, 15, 30, 0.95) 100%
+  );
+  background-size: 400% 400%;
+  animation: fuiGlassGradient 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.fui-glass-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(123, 47, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(0, 255, 136, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.fui-glass-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.01) 2px,
+    rgba(0, 255, 255, 0.01) 4px
+  );
+  pointer-events: none;
+}
+
+@keyframes fuiGlassGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Base Glass Card */
+.fui-glass-card {
+  background: rgba(0, 20, 40, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.fui-glass-card:hover {
+  border-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.fui-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 255, 255, 0.3), 
+    transparent
+  );
+}
+
+/* Card Header */
+.fui-glass-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.fui-glass-card-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #00ffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fui-glass-card-badge {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Buttons */
+.fui-glass-btn {
+  background: rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 24px;
+  color: #00ffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.fui-glass-btn:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.fui-glass-btn:active {
+  transform: translateY(0);
+}
+
+.fui-glass-btn.primary {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.3);
+}
+
+.fui-glass-btn.secondary {
+  background: rgba(123, 47, 255, 0.1);
+  border-color: rgba(123, 47, 255, 0.3);
+  color: #7b2fff;
+}
+
+.fui-glass-btn.success {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: rgba(0, 255, 136, 0.3);
+  color: #00ff88;
+}
+
+.fui-glass-btn.danger {
+  background: rgba(255, 68, 102, 0.1);
+  border-color: rgba(255, 68, 102, 0.3);
+  color: #ff4466;
+}
+
+.fui-glass-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Inputs */
+.fui-glass-input-group {
+  margin-bottom: 20px;
+}
+
+.fui-glass-label {
+  display: block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #00ffff;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fui-glass-input {
+  width: 100%;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.fui-glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.fui-glass-input:focus {
+  outline: none;
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 
+    0 0 0 2px rgba(0, 255, 255, 0.1),
+    0 0 20px rgba(0, 255, 255, 0.1);
+  background: rgba(0, 20, 40, 0.4);
+}
+
+.fui-glass-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Select */
+.fui-glass-select {
+  width: 100%;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.fui-glass-select:focus {
+  outline: none;
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+/* Checkbox */
+.fui-glass-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.fui-glass-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.fui-glass-checkbox .checkmark {
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.fui-glass-checkbox input[type="checkbox"]:checked + .checkmark {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+.fui-glass-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ffff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Radio */
+.fui-glass-radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.fui-glass-radio input[type="radio"] {
+  display: none;
+}
+
+.fui-glass-radio .radiomark {
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.fui-glass-radio input[type="radio"]:checked + .radiomark {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+.fui-glass-radio input[type="radio"]:checked + .radiomark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #00ffff;
+  border-radius: 50%;
+}
+
+/* Table */
+.fui-glass-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  background: rgba(0, 20, 40, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.fui-glass-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.fui-glass-table th {
+  background: rgba(0, 255, 255, 0.05);
+  color: #00ffff;
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.fui-glass-table td {
+  padding: 14px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.05);
+}
+
+.fui-glass-table tr:hover {
+  background: rgba(0, 255, 255, 0.02);
+}
+
+/* Progress */
+.fui-glass-progress-group {
+  margin-bottom: 16px;
+}
+
+.fui-glass-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.fui-glass-progress-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #00ffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fui-glass-progress-value {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #ffffff;
+}
+
+.fui-glass-progress-bar {
+  height: 8px;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.fui-glass-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #00cccc);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.fui-glass-progress-fill.warning {
+  background: linear-gradient(90deg, #ff6600, #cc5500);
+}
+
+.fui-glass-progress-fill.danger {
+  background: linear-gradient(90deg, #ff4466, #cc3355);
+}
+
+/* Badge */
+.fui-glass-badge {
+  display: inline-block;
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  margin: 0 4px 4px 0;
+}
+
+.fui-glass-badge.success {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.fui-glass-badge.warning {
+  background: rgba(255, 102, 0, 0.1);
+  color: #ff6600;
+  border-color: rgba(255, 102, 0, 0.2);
+}
+
+.fui-glass-badge.danger {
+  background: rgba(255, 68, 102, 0.1);
+  color: #ff4466;
+  border-color: rgba(255, 68, 102, 0.2);
+}
+
+/* Toggle */
+.fui-glass-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.fui-glass-toggle {
+  width: 50px;
+  height: 24px;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fui-glass-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fui-glass-toggle.active {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+.fui-glass-toggle.active::after {
+  left: 28px;
+  background: #00ffff;
+}
+
+.fui-glass-toggle-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Slider */
+.fui-glass-slider {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  margin-bottom: 8px;
+  -webkit-appearance: none;
+}
+
+.fui-glass-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #00ffff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.fui-glass-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #00ffff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Tooltip */
+.fui-glass-tooltip {
+  position: relative;
+  cursor: help;
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+}
+
+.fui-glass-tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 20, 40, 0.9);
+  backdrop-filter: blur(15px);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+  margin-bottom: 8px;
+}
+
+.fui-glass-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Spinner */
+.fui-glass-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(0, 255, 255, 0.15);
+  border-top-color: #00ffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fui-glass-container {
+    padding: 15px;
+  }
+  
+  .fui-glass-card {
+    padding: 20px;
+  }
+  
+  .fui-glass-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}

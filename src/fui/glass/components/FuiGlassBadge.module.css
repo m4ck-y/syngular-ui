@@ -1,0 +1,32 @@
+.fuiGlassBadge {
+  display: inline-block;
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  margin: 0 4px 4px 0;
+}
+
+.fuiGlassBadge.success {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.fuiGlassBadge.warning {
+  background: rgba(255, 102, 0, 0.1);
+  color: #ff6600;
+  border-color: rgba(255, 102, 0, 0.2);
+}
+
+.fuiGlassBadge.danger {
+  background: rgba(255, 68, 102, 0.1);
+  color: #ff4466;
+  border-color: rgba(255, 68, 102, 0.2);
+}

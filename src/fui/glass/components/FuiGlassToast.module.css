@@ -1,0 +1,85 @@
+.fuiGlassToast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(0, 20, 40, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.fuiGlassToast.info {
+  border-color: rgba(0, 255, 255, 0.2);
+}
+
+.fuiGlassToast.success {
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.fuiGlassToast.warning {
+  border-color: rgba(255, 102, 0, 0.2);
+}
+
+.fuiGlassToast.error {
+  border-color: rgba(255, 68, 102, 0.2);
+}
+
+.toastIcon {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  color: #00ffff;
+}
+
+.fuiGlassToast.success .toastIcon {
+  color: #00ff88;
+}
+
+.fuiGlassToast.warning .toastIcon {
+  color: #ff6600;
+}
+
+.fuiGlassToast.error .toastIcon {
+  color: #ff4466;
+}
+
+.toastContent {
+  flex: 1;
+}
+
+.toastTitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #00ffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.fuiGlassToast.success .toastTitle {
+  color: #00ff88;
+}
+
+.fuiGlassToast.warning .toastTitle {
+  color: #ff6600;
+}
+
+.fuiGlassToast.error .toastTitle {
+  color: #ff4466;
+}
+
+.toastMessage {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+.toastTime {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}

@@ -1,0 +1,57 @@
+.fuiGlassBtn {
+  background: rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 24px;
+  color: #00ffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.fuiGlassBtn:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.fuiGlassBtn:active {
+  transform: translateY(0);
+}
+
+.fuiGlassBtn.primary {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.3);
+}
+
+.fuiGlassBtn.secondary {
+  background: rgba(123, 47, 255, 0.1);
+  border-color: rgba(123, 47, 255, 0.3);
+  color: #7b2fff;
+}
+
+.fuiGlassBtn.success {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: rgba(0, 255, 136, 0.3);
+  color: #00ff88;
+}
+
+.fuiGlassBtn.danger {
+  background: rgba(255, 68, 102, 0.1);
+  border-color: rgba(255, 68, 102, 0.3);
+  color: #ff4466;
+}
+
+.fuiGlassBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

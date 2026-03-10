@@ -1,0 +1,50 @@
+.fuiGlassProgressGroup {
+  margin-bottom: 16px;
+}
+
+.fuiGlassProgressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.fuiGlassProgressLabel {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #00ffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fuiGlassProgressValue {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #ffffff;
+}
+
+.fuiGlassProgressBar {
+  height: 8px;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.fuiGlassProgressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #00cccc);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.fuiGlassProgressFill.warning {
+  background: linear-gradient(90deg, #ff6600, #cc5500);
+}
+
+.fuiGlassProgressFill.danger {
+  background: linear-gradient(90deg, #ff4466, #cc3355);
+}

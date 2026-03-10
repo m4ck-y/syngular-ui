@@ -1,0 +1,57 @@
+.fuiGlassAccordionItem {
+  background: rgba(0, 20, 40, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.fuiGlassAccordionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: rgba(0, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.fuiGlassAccordionHeader:hover {
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.fuiGlassAccordionHeader .title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #00ffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fuiGlassAccordionHeader .icon {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  color: #00ffff;
+  transition: transform 0.3s ease;
+}
+
+.fuiGlassAccordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.fuiGlassAccordionItem.active .fuiGlassAccordionContent {
+  max-height: 200px;
+}
+
+.fuiGlassAccordionBody {
+  padding: 20px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}

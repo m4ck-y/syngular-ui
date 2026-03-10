@@ -1,0 +1,36 @@
+.fuiGlassTableWrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  background: rgba(0, 20, 40, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.fuiGlassTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.fuiGlassTable th {
+  background: rgba(0, 255, 255, 0.05);
+  color: #00ffff;
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.fuiGlassTable td {
+  padding: 14px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.05);
+}
+
+.fuiGlassTable tr:hover {
+  background: rgba(0, 255, 255, 0.02);
+}

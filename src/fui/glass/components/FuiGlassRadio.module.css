@@ -1,0 +1,42 @@
+.fuiGlassRadio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.fuiGlassRadio input[type="radio"] {
+  display: none;
+}
+
+.fuiGlassRadio .radiomark {
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 20, 40, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.fuiGlassRadio input[type="radio"]:checked + .radiomark {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+.fuiGlassRadio input[type="radio"]:checked + .radiomark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #00ffff;
+  border-radius: 50%;
+}
