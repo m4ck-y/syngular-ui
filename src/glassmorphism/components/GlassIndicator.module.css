@@ -1,0 +1,70 @@
+.indicator {
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 12px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.dots {
+  width: 8px;
+  height: 8px;
+}
+
+.bars {
+  width: 4px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.levels {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+}
+
+.vertical .bars {
+  width: 16px;
+  height: 4px;
+}
+
+.vertical .levels {
+  width: 12px;
+  height: 4px;
+}
+
+.primary .active {
+  background: linear-gradient(135deg, var(--glass-primary) 0%, rgba(0, 212, 255, 0.8) 100%);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+}
+
+.secondary .active {
+  background: linear-gradient(135deg, var(--glass-secondary) 0%, rgba(255, 107, 157, 0.8) 100%);
+  box-shadow: 0 0 12px rgba(255, 107, 157, 0.6);
+}
+
+.success .active {
+  background: linear-gradient(135deg, var(--glass-success) 0%, rgba(0, 245, 160, 0.8) 100%);
+  box-shadow: 0 0 12px rgba(0, 245, 160, 0.6);
+}
+
+.item:hover {
+  transform: scale(1.2);
+}

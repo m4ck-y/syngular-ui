@@ -1,0 +1,70 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--glass-text);
+  font-weight: 600;
+}
+
+.toggle {
+  width: 60px;
+  height: 32px;
+  border: none;
+  border-radius: 20px;
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 4px;
+  position: relative;
+}
+
+.toggle:hover {
+  background: var(--glass-surface-hover);
+  box-shadow: 0 4px 16px rgba(31, 38, 135, 0.3);
+}
+
+.active {
+  background: linear-gradient(135deg, var(--glass-primary) 0%, #0099cc 100%);
+  border-color: var(--glass-primary);
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+}
+
+.active .thumb {
+  left: calc(100% - 24px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background: var(--glass-surface);
+  box-shadow: none;
+}

@@ -1,0 +1,65 @@
+.tableContainer {
+  border-radius: 20px;
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  overflow: hidden;
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headerRow {
+  background: linear-gradient(135deg, var(--glass-primary) 0%, #0099cc 100%);
+}
+
+.headerCell {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dataRow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.dataRow:hover {
+  background: var(--glass-surface-hover);
+  transform: translateX(4px);
+}
+
+.dataRow:last-child {
+  border-bottom: none;
+}
+
+.dataCell {
+  padding: 16px 20px;
+  color: var(--glass-text);
+  font-size: 14px;
+  position: relative;
+}
+
+.dataCell::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(135deg, var(--glass-primary) 0%, #0099cc 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dataRow:hover .dataCell::before {
+  opacity: 1;
+}

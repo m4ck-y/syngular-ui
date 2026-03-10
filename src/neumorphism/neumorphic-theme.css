@@ -1,0 +1,64 @@
+:root {
+  --neu-bg: #f0f2f5;
+  --neu-surface: #ffffff;
+  --neu-primary: #667eea;
+  --neu-secondary: #764ba2;
+  --neu-accent: #f093fb;
+  --neu-success: #4facfe;
+  --neu-warning: #f6d365;
+  --neu-danger: #fa709a;
+  --neu-text: #4a5568;
+  --neu-text-light: #718096;
+  --neu-shadow-light: rgba(255, 255, 255, 0.8);
+  --neu-shadow-dark: rgba(163, 177, 198, 0.4);
+  --neu-border: rgba(163, 177, 198, 0.2);
+}
+
+.neumorphic {
+  background: linear-gradient(135deg, #f0f2f5 0%, #e8ebf0 100%);
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--neu-text);
+}
+
+.neumorphic * {
+  box-sizing: border-box;
+}
+
+.neu-shadow {
+  box-shadow: 
+    8px 8px 16px var(--neu-shadow-dark),
+    -8px -8px 16px var(--neu-shadow-light);
+}
+
+.neu-shadow-inset {
+  box-shadow: 
+    inset 4px 4px 8px var(--neu-shadow-dark),
+    inset -4px -4px 8px var(--neu-shadow-light);
+}
+
+.neu-shadow-hover {
+  box-shadow: 
+    12px 12px 24px var(--neu-shadow-dark),
+    -12px -12px 24px var(--neu-shadow-light);
+}
+
+.neu-gradient-primary {
+  background: linear-gradient(135deg, var(--neu-primary) 0%, var(--neu-secondary) 100%);
+}
+
+.neu-gradient-accent {
+  background: linear-gradient(135deg, var(--neu-accent) 0%, var(--neu-primary) 100%);
+}
+
+.neu-gradient-success {
+  background: linear-gradient(135deg, var(--neu-success) 0%, #00d2ff 100%);
+}
+
+.neu-gradient-warning {
+  background: linear-gradient(135deg, var(--neu-warning) 0%, #fda085 100%);
+}
+
+.neu-gradient-danger {
+  background: linear-gradient(135deg, var(--neu-danger) 0%, #fe6b8b 100%);
+}

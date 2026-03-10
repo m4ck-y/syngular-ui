@@ -1,0 +1,65 @@
+.tableContainer {
+  border-radius: 20px;
+  background: var(--neu-surface);
+  box-shadow: 
+    12px 12px 24px var(--neu-shadow-dark),
+    -12px -12px 24px var(--neu-shadow-light);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headerRow {
+  background: linear-gradient(135deg, var(--neu-primary) 0%, var(--neu-secondary) 100%);
+}
+
+.headerCell {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dataRow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid var(--neu-border);
+}
+
+.dataRow:hover {
+  background: rgba(102, 126, 234, 0.05);
+  transform: translateX(4px);
+}
+
+.dataRow:last-child {
+  border-bottom: none;
+}
+
+.dataCell {
+  padding: 16px 20px;
+  color: var(--neu-text);
+  font-size: 14px;
+  position: relative;
+}
+
+.dataCell::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(135deg, var(--neu-primary) 0%, var(--neu-secondary) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dataRow:hover .dataCell::before {
+  opacity: 1;
+}

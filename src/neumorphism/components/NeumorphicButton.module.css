@@ -1,0 +1,96 @@
+.button {
+  border: none;
+  border-radius: 16px;
+  background: var(--neu-bg);
+  color: var(--neu-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    8px 8px 16px var(--neu-shadow-dark),
+    -8px -8px 16px var(--neu-shadow-light);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    12px 12px 24px var(--neu-shadow-dark),
+    -12px -12px 24px var(--neu-shadow-light);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px var(--neu-shadow-dark),
+    inset -4px -4px 8px var(--neu-shadow-light);
+}
+
+.small {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.medium {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+.large {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--neu-primary) 0%, var(--neu-secondary) 100%);
+  color: white;
+}
+
+.secondary {
+  background: var(--neu-surface);
+  color: var(--neu-text);
+}
+
+.success {
+  background: linear-gradient(135deg, var(--neu-success) 0%, #00d2ff 100%);
+  color: white;
+}
+
+.warning {
+  background: linear-gradient(135deg, var(--neu-warning) 0%, #fda085 100%);
+  color: white;
+}
+
+.danger {
+  background: linear-gradient(135deg, var(--neu-danger) 0%, #fe6b8b 100%);
+  color: white;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.disabled:hover {
+  box-shadow: 
+    8px 8px 16px var(--neu-shadow-dark),
+    -8px -8px 16px var(--neu-shadow-light);
+}

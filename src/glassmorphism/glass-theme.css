@@ -1,0 +1,131 @@
+:root {
+  --glass-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --glass-surface: rgba(255, 255, 255, 0.1);
+  --glass-surface-hover: rgba(255, 255, 255, 0.15);
+  --glass-surface-active: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-text: rgba(255, 255, 255, 0.9);
+  --glass-text-secondary: rgba(255, 255, 255, 0.7);
+  --glass-primary: #00d4ff;
+  --glass-secondary: #ff6b9d;
+  --glass-success: #00f5a0;
+  --glass-warning: #ffd23f;
+  --glass-danger: #ff4757;
+  --glass-shadow: rgba(31, 38, 135, 0.37);
+}
+
+.glassmorphism {
+  background: 
+    linear-gradient(rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3)),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--glass-text);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.glassmorphism::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: floatingBubbles 12s ease-in-out infinite;
+}
+
+@keyframes floatingBubbles {
+  0%, 100% {
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+  }
+  33% {
+    background: 
+      radial-gradient(circle at 60% 30%, rgba(255, 200, 87, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 30% 70%, rgba(87, 255, 200, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 60%, rgba(200, 87, 255, 0.3) 0%, transparent 50%);
+  }
+  66% {
+    background: 
+      radial-gradient(circle at 80% 60%, rgba(255, 87, 150, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 20% 40%, rgba(150, 255, 87, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(87, 150, 255, 0.3) 0%, transparent 50%);
+  }
+}
+
+.glassmorphism::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.glassmorphism * {
+  box-sizing: border-box;
+}
+
+.glass-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-blur-strong {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+.glass-surface {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-gradient-primary {
+  background: linear-gradient(135deg, var(--glass-primary) 0%, #0099cc 100%);
+}
+
+.glass-gradient-secondary {
+  background: linear-gradient(135deg, var(--glass-secondary) 0%, #cc5577 100%);
+}
+
+.glass-gradient-success {
+  background: linear-gradient(135deg, var(--glass-success) 0%, #00cc77 100%);
+}
+
+.glass-gradient-warning {
+  background: linear-gradient(135deg, var(--glass-warning) 0%, #cc9900 100%);
+}
+
+.glass-gradient-danger {
+  background: linear-gradient(135deg, var(--glass-danger) 0%, #cc3344 100%);
+}

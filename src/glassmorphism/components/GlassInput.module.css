@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--glass-text);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--glass-surface);
+  color: var(--glass-text);
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.input:focus {
+  border-color: var(--glass-primary);
+  background: var(--glass-surface-hover);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+}
+
+.input::placeholder {
+  color: var(--glass-text-secondary);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
